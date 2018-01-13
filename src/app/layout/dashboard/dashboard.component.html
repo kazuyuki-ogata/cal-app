@@ -1,0 +1,25 @@
+<div [@routerTransition]>
+    <div class="row">
+        <table class="table table-bordered col-xl-3 col-lg-6" style="text-align: center; height: -webkit-fill-available;">
+            <thead>
+                <tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let week of weeks" style="">
+                    <td>{{week.day1}}</td>
+                    <td>{{week.day2}}</td>
+                    <td>{{week.day3}}</td>
+                    <td>{{week.day4}}</td>
+                    <td>{{week.day5}}</td>
+                    <td>{{week.day6}}</td>
+                    <td>{{week.day7}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<!--
+    <hr />
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    <hr />
+-->
+</div>
