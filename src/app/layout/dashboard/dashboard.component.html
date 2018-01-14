@@ -1,18 +1,19 @@
 <div [@routerTransition]>
+  <h2 style="text-align: center;">2017年12月</h2>
     <div class="row">
-        <table class="table table-bordered col-xl-3 col-lg-6" style="text-align: center; height: -webkit-fill-available;">
+        <table class="table table-bordered col-xl-3 col-lg-6" style="table-layout: fixed; text-align: center; height: -webkit-fill-available;">
             <thead>
                 <tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let week of weeks" style="">
-                    <td>{{week.day1}}</td>
-                    <td>{{week.day2}}</td>
-                    <td>{{week.day3}}</td>
-                    <td>{{week.day4}}</td>
-                    <td>{{week.day5}}</td>
-                    <td>{{week.day6}}</td>
-                    <td>{{week.day7}}</td>
+            <tbody style="text-align: left; font-size: x-large">
+                <tr *ngFor="let week of weeks">
+                    <td><div style="font-size: 6vh; color: Crimson; float: left;">{{week.day1}}</div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule1}}</li></ul></div></td>
+                    <td><div style="font-size: 6vh; float: left;">{{week.day2}}</div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule2}}</li></ul></div></td>
+                    <td><div style="font-size: 6vh; float: left;">{{week.day3}}</div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule3}}</li></ul></div></td>
+                    <td><div style="font-size: 6vh; float: left;">{{week.day4}}</div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule4}}</li></ul></div></td>
+                    <td><div style="font-size: 6vh; float: left;">{{week.day5}}</div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule5}}</li></ul></div></td>
+                    <td><div style="font-size: 6vh; float: left;">{{week.day6}}</div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule6}}</li></ul></div></td>
+                    <td><div style="font-size: 6vh; color: Blue; float: left;">{{week.day7}}</div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule1}}</li></ul></div><div style="width:65%; float: right;"><ul><li style="display: inherit; background-color: green; color: white;">{{week.schedule7}}</li></ul></div></td>
                 </tr>
             </tbody>
         </table>
