@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
+import { CalendarService } from '../../calendar.service';
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -13,121 +15,24 @@ export class DashboardComponent implements OnInit {
     public weeks: Array<any> = [];
     public now: string;
 
-    constructor() {
-      const dateObj = new Date();
-      this.now = dateObj.getFullYear() + "年" + (dateObj.getMonth() + 1) + "月";
+    constructor(private calendarService: CalendarService) {
 
-      this.sliders.push(
-      );
+        this.sliders.push(
+        );
 
-      this.alerts.push(
-          {
-              id: 1,
-              type: 'success',
-              message: `新着メッセージはありません。`
-          },
-      );
-
-      this.weeks.push(
-          {
-              day1: ``,
-              day2: ``,
-              day3: ``,
-              day4: ``,
-              day5: ``,
-              day6: `1`,
-              day7: `2`,
-              schedule1: ``,
-              schedule2: ``,
-              schedule3: ``,
-              schedule4: ``,
-              schedule5: ``,
-              schedule6: ``,
-              schedule7: ``,
-          },
-          {
-              day1: `3`,
-              day2: `4`,
-              day3: `5`,
-              day4: `6`,
-              day5: `7`,
-              day6: `8`,
-              day7: `9`,
-              schedule1: ``,
-              schedule2: ``,
-              schedule3: ``,
-              schedule4: ``,
-              schedule5: ``,
-              schedule6: ``,
-              schedule7: ``,
-          },
-          {
-              day1: `10`,
-              day2: `11`,
-              day3: `12`,
-              day4: `13`,
-              day5: `14`,
-              day6: `15`,
-              day7: `16`,
-              schedule1: ``,
-              schedule2: `子供の\n誕生日`,
-              schedule3: ``,
-              schedule4: ``,
-              schedule5: ``,
-              schedule6: ``,
-              schedule7: ``,
-          },
-          {
-              day1: `17`,
-              day2: `18`,
-              day3: `19`,
-              day4: `20`,
-              day5: `21`,
-              day6: `22`,
-              day7: `23`,
-              schedule1: ``,
-              schedule2: ``,
-              schedule3: ``,
-              schedule4: ``,
-              schedule5: ``,
-              schedule6: ``,
-              schedule7: ``,
-          },
-          {
-              day1: `24`,
-              day2: `25`,
-              day3: `26`,
-              day4: `27`,
-              day5: `28`,
-              day6: `29`,
-              day7: `30`,
-              schedule1: ``,
-              schedule2: ``,
-              schedule3: ``,
-              schedule4: ``,
-              schedule5: ``,
-              schedule6: ``,
-              schedule7: ``,
-          },
-          {
-              day1: `31`,
-              day2: ``,
-              day3: ``,
-              day4: ``,
-              day5: ``,
-              day6: ``,
-              day7: ``,
-              schedule1: ``,
-              schedule2: ``,
-              schedule3: ``,
-              schedule4: ``,
-              schedule5: ``,
-              schedule6: ``,
-              schedule7: ``,
-          });
+        this.alerts.push(
+            {
+                id: 1,
+                type: 'success',
+                message: `新着メッセージはありません。`
+            },
+        );
     }
 
     ngOnInit() {
+        this.calendarService.setCurrentDate(new Date());
+        this.now = this.calendarService.getDispLabel();
+        this.weeks = this.calendarService.getWeeksObject(new Date());
     }
 
     public closeAlert(alert: any) {

@@ -16,6 +16,11 @@ table {
   float: left;
 }
 
+.day-regular-not-thismonth {
+  @extend .day-regular;
+  color: Silver;
+}
+
 .day-sun {
   @extend .day-regular;
   color: Crimson;

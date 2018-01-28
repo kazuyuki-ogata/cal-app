@@ -7,13 +7,13 @@
             </thead>
             <tbody style="text-align: left; font-size: x-large">
                 <tr *ngFor="let week of weeks">
-                    <td><div class="day-sun">{{week.day1}}</div><div class="schedule"><ul><li>{{week.schedule1}}</li></ul></div></td>
-                    <td><div class="day-regular">{{week.day2}}</div><div class="schedule"><ul><li>{{week.schedule2}}</li></ul></div></td>
-                    <td><div class="day-regular">{{week.day3}}</div><div class="schedule"><ul><li>{{week.schedule3}}</li></ul></div></td>
-                    <td><div class="day-regular">{{week.day4}}</div><div class="schedule"><ul><li>{{week.schedule4}}</li></ul></div></td>
-                    <td><div class="day-regular">{{week.day5}}</div><div class="schedule"><ul><li>{{week.schedule5}}</li></ul></div></td>
-                    <td><div class="day-regular">{{week.day6}}</div><div class="schedule"><ul><li>{{week.schedule6}}</li></ul></div></td>
-                    <td><div class="day-sat">{{week.day7}}</div><div class="schedule"><ul><li>{{week.schedule7}}</li></ul></div></td>
+                    <td><div class={{week[0].class}}>{{week[0].day}}</div><div class="schedule"><ul><li>{{week[0].schedule}}</li></ul></div></td>
+                    <td><div class={{week[1].class}}>{{week[1].day}}</div><div class="schedule"><ul><li>{{week[1].schedule}}</li></ul></div></td>
+                    <td><div class={{week[2].class}}>{{week[2].day}}</div><div class="schedule"><ul><li>{{week[2].schedule}}</li></ul></div></td>
+                    <td><div class={{week[3].class}}>{{week[3].day}}</div><div class="schedule"><ul><li>{{week[3].schedule}}</li></ul></div></td>
+                    <td><div class={{week[4].class}}>{{week[4].day}}</div><div class="schedule"><ul><li>{{week[4].schedule}}</li></ul></div></td>
+                    <td><div class={{week[5].class}}>{{week[5].day}}</div><div class="schedule"><ul><li>{{week[5].schedule}}</li></ul></div></td>
+                    <td><div class={{week[6].class}}>{{week[6].day}}</div><div class="schedule"><ul><li>{{week[6].schedule}}</li></ul></div></td>
                 </tr>
             </tbody>
         </table>

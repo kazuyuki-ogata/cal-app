@@ -6,6 +6,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { StatModule } from '../../shared';
 
+import { CalendarService } from '../../calendar.service';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -16,6 +18,9 @@ import { StatModule } from '../../shared';
     ],
     declarations: [
         DashboardComponent,
+    ],
+    providers: [
+        CalendarService,
     ]
 })
 export class DashboardModule {}
