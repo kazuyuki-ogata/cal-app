@@ -1,0 +1,38 @@
+h2 {
+  text-align:
+  center;
+}
+
+table {
+  table-layout: fixed;
+  text-align: center;
+  height: fill-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+}
+
+.day-regular {
+  font-size: 6vh;
+  float: left;
+}
+
+.day-sun {
+  @extend .day-regular;
+  color: Crimson;
+}
+
+.day-sat {
+  @extend .day-regular;
+  color: Blue;
+}
+
+.schedule {
+  width:60%;
+  float: right;
+}
+
+.schedule > ul > li {
+  display: inherit;
+  background-color: green;
+  color: white;
+}
