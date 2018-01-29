@@ -14,6 +14,12 @@ export class CalendarService {
         return this.currentDate.getFullYear() + "年" + (this.currentDate.getMonth() + 1) + "月";
     }
 
+    private getColumnClassNameName(inputDate: any) {
+        if (inputDate.getMonth() == this.currentDate.getMonth() && inputDate.getDate() == this.currentDate.getDate()) {
+            return "today-column";
+        return "";
+    }
+
     private getClassName(inputDate: any) {
         if (inputDate.getMonth() != this.currentDate.getMonth()) {
             return "day-regular-not-thismonth";
@@ -25,18 +31,25 @@ export class CalendarService {
         return "day-regular";
     }
 
-    private getDayNum(inputDate: any) {
-        return inputDate.getDate();
+    public getSchedule(inputDate: any) {
+        var dateStr = "" + inputDate.getFullYear() + ('0' + (inputDate.getMonth() + 1)).slice(-2) + ('0' + (inputDate.getDate())).slice(-2);
+        if (dateStr == "20180110") {
+            return "子供の誕生日";
+        }
+        return "";
     }
 
     public getDayObject(inputDate: any) {
+      var columnClassName: string = this.getColumnClassNameName(inputDate);
         var className: string = this.getClassName(inputDate);
-        var dayNum: string = this.getDayNum(inputDate);
+        var dayNum: string = inputDate.getDate();
+        var schedule: string = this.getSchedule(inputDate);
 
         const dayObj = {
+          columnClass: columnClassName,
             class: className,
             day: dayNum,
-            schedule: ``
+            schedule: schedule
         };
 
         return dayObj;
@@ -61,7 +74,11 @@ export class CalendarService {
         // 月初の週初めを設定
         var firstDayOfMonth = inputDate;
         firstDayOfMonth.setDate(1);
-        firstDayOfMonth.setDate(firstDayOfMonth.getDate() - firstDayOfMonth.getDay());
+        if (firstDayOfMonth.getDay() == 0) {
+            firstDayOfMonth.setDate(firstDayOfMonth.getDate() - 7);
+        } else {
+            firstDayOfMonth.setDate(firstDayOfMonth.getDate() - firstDayOfMonth.getDay());
+        }
 
         for (var i: number = 0; i < 6; i++) {
             var inputWeekObj = this.getWeekObject(firstDayOfMonth);
