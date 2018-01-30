@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 
+import { Schedule } from './schedule';
+import { SCHEDULES } from './mock-schedules';
+
 @Injectable()
 export class CalendarService {
     private currentDate: any = null;
+    private schedules: Schedule[] = SCHEDULES;
 
     constructor() { }
 
@@ -32,24 +36,32 @@ export class CalendarService {
         return "day-regular";
     }
 
-    public getSchedule(inputDate: any) {
-        var dateStr = "" + inputDate.getFullYear() + ('0' + (inputDate.getMonth() + 1)).slice(-2) + ('0' + (inputDate.getDate())).slice(-2);
-        if (dateStr == "20180110") {
-            return "子供の誕生日";
+    public getDateStr(inputDate: any) {
+        return "" + inputDate.getFullYear() + ('0' + (inputDate.getMonth() + 1)).slice(-2) + ('0' + (inputDate.getDate())).slice(-2);
+    }
+
+    private getSchedule(dateStr: string): Schedule {
+        for (let s of this.schedules) {
+          var sd: Schedule = s;
+            if (dateStr == sd.getDateStr()) {
+                return s;
+            }
         }
-        return "";
+        return new Schedule(dateStr, '');
     }
 
     public getDayObject(inputDate: any) {
         var columnClassName: string = this.getColumnClassNameName(inputDate);
         var className: string = this.getClassName(inputDate);
         var dayNum: string = inputDate.getDate();
-        var schedule: string = this.getSchedule(inputDate);
+        var dateStr: string = this.getDateStr(inputDate);
+        var schedule: Schedule = this.getSchedule(dateStr);
 
         const dayObj = {
             columnClass: columnClassName,
             class: className,
             day: dayNum,
+            dateStr: dateStr,
             schedule: schedule
         };
 

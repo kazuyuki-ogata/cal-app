@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
 import { CalendarService } from '../../calendar.service';
+import { Schedule } from '../../schedule';
 
 @Component({
     selector: 'app-dashboard',
@@ -14,6 +15,8 @@ export class DashboardComponent implements OnInit {
     public sliders: Array<any> = [];
     public weeks: Array<any> = [];
     public now: string;
+
+    public selectedSchedule: Schedule;
 
     constructor(private calendarService: CalendarService) {
 
@@ -38,5 +41,9 @@ export class DashboardComponent implements OnInit {
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);
         this.alerts.splice(index, 1);
+    }
+
+    onSelect(schedule: Schedule): void {
+        this.selectedSchedule = schedule;
     }
 }
