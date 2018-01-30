@@ -17,6 +17,7 @@ export class CalendarService {
     private getColumnClassNameName(inputDate: any) {
         if (inputDate.getMonth() == this.currentDate.getMonth() && inputDate.getDate() == this.currentDate.getDate()) {
             return "today-column";
+        }
         return "";
     }
 
@@ -40,13 +41,13 @@ export class CalendarService {
     }
 
     public getDayObject(inputDate: any) {
-      var columnClassName: string = this.getColumnClassNameName(inputDate);
+        var columnClassName: string = this.getColumnClassNameName(inputDate);
         var className: string = this.getClassName(inputDate);
         var dayNum: string = inputDate.getDate();
         var schedule: string = this.getSchedule(inputDate);
 
         const dayObj = {
-          columnClass: columnClassName,
+            columnClass: columnClassName,
             class: className,
             day: dayNum,
             schedule: schedule
