@@ -1,48 +1,52 @@
 h2 {
-  text-align:
-  center;
+    text-align: center;
 }
 
 table {
-  table-layout: fixed;
-  text-align: center;
-  height: fill-available;
-  height: -webkit-fill-available;
-  height: -moz-available;
+    table-layout: fixed;
+    text-align: center;
+    height: fill-available;
+    height: -webkit-fill-available;
+    height: -moz-available;
+}
+
+tbody {
+    text-align: left;
+    font-size: x-large;
 }
 
 .today-column {
-  background-color: Bisque;
+    background-color: Bisque;
 }
 
 .day-regular {
-  font-size: 6vh;
-  float: left;
+    font-size: 6vh;
+    float: left;
 }
 
 .day-regular-not-thismonth {
-  @extend .day-regular;
-  color: Silver;
+    @extend .day-regular;
+    color: Silver;
 }
 
 .day-sun {
-  @extend .day-regular;
-  color: Crimson;
+    @extend .day-regular;
+    color: Crimson;
 }
 
 .day-sat {
-  @extend .day-regular;
-  color: Blue;
+    @extend .day-regular;
+    color: Blue;
 }
 
 .schedule {
-  width:60%;
-  float: right;
+    width: 60%;
+    float: right;
 }
 
 .schedule > ul > li {
-  display: inherit;
-  background-color: green;
-  color: white;
-  word-wrap: break-word;
+    display: inherit;
+    background-color: green;
+    color: white;
+    word-wrap: break-word;
 }

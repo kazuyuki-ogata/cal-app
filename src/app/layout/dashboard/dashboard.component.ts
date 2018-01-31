@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { routerTransition } from '../../router.animations';
+
+import { ScheduleModalComponent } from '../components/modal/schedule-modal/schedule-modal.component';
 
 import { CalendarService } from '../../calendar.service';
 import { Schedule } from '../../schedule';
@@ -16,9 +19,7 @@ export class DashboardComponent implements OnInit {
     public weeks: Array<any> = [];
     public now: string;
 
-    public selectedSchedule: Schedule;
-
-    constructor(private calendarService: CalendarService) {
+    constructor(private calendarService: CalendarService, private modalService: NgbModal) {
 
         this.sliders.push(
         );
@@ -44,6 +45,15 @@ export class DashboardComponent implements OnInit {
     }
 
     onSelect(schedule: Schedule): void {
-        this.selectedSchedule = schedule;
+        //this.calendarService.setSelectedSchedule(schedule);
+        const modalRef = this.modalService.open(ScheduleModalComponent);
+        var dateStr = schedule.getDateStr();
+        modalRef.componentInstance.date = dateStr.substr(0, 4) + '年' + Number(dateStr.substr(4, 2)) + '月' + Number(dateStr.substr(6, 2)) + '日';
+        modalRef.componentInstance.title = schedule.getTitle();
+        modalRef.result.then(
+            result => {
+                console.log(result);
+            }
+        );
     }
 }

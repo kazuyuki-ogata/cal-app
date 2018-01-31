@@ -7,6 +7,7 @@ import { SCHEDULES } from './mock-schedules';
 export class CalendarService {
     private currentDate: any = null;
     private schedules: Schedule[] = SCHEDULES;
+    private selectedSchedule: Schedule = null;
 
     constructor() { }
 
@@ -18,6 +19,14 @@ export class CalendarService {
         return this.currentDate.getFullYear() + "年" + (this.currentDate.getMonth() + 1) + "月";
     }
 
+    public setSelectedSchedule(selectedSchedule: Schedule) {
+        this.selectedSchedule = selectedSchedule;
+    }
+
+    public getSelectedSchedule() {
+        return this.selectedSchedule;
+    }
+
     private getColumnClassNameName(inputDate: any) {
         if (inputDate.getMonth() == this.currentDate.getMonth() && inputDate.getDate() == this.currentDate.getDate()) {
             return "today-column";
@@ -25,7 +34,7 @@ export class CalendarService {
         return "";
     }
 
-    private getClassName(inputDate: any) {
+    private getClassName(inputDate: any): string {
         if (inputDate.getMonth() != this.currentDate.getMonth()) {
             return "day-regular-not-thismonth";
         } else if (inputDate.getDay() == 0) {
@@ -36,7 +45,7 @@ export class CalendarService {
         return "day-regular";
     }
 
-    public getDateStr(inputDate: any) {
+    public getDateStr(inputDate: any): string {
         return "" + inputDate.getFullYear() + ('0' + (inputDate.getMonth() + 1)).slice(-2) + ('0' + (inputDate.getDate())).slice(-2);
     }
 

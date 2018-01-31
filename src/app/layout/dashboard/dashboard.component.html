@@ -5,15 +5,15 @@
             <thead>
                 <tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
             </thead>
-            <tbody style="text-align: left; font-size: x-large">
+            <tbody>
                 <tr *ngFor="let week of weeks">
-                    <td class={{week[0].columnClass}}><div class={{week[0].class}}>{{week[0].day}}</div><div class="schedule"><ul><li (click)="onSelect(week[0].schedule)">{{week[0].schedule.title}}</li></ul></div></td>
-                    <td class={{week[1].columnClass}}><div class={{week[1].class}}>{{week[1].day}}</div><div class="schedule"><ul><li (click)="onSelect(week[1].schedule)">{{week[1].schedule.title}}</li></ul></div></td>
-                    <td class={{week[2].columnClass}}><div class={{week[2].class}}>{{week[2].day}}</div><div class="schedule"><ul><li (click)="onSelect(week[2].schedule)">{{week[2].schedule.title}}</li></ul></div></td>
-                    <td class={{week[3].columnClass}}><div class={{week[3].class}}>{{week[3].day}}</div><div class="schedule"><ul><li (click)="onSelect(week[3].schedule)">{{week[3].schedule.title}}</li></ul></div></td>
-                    <td class={{week[4].columnClass}}><div class={{week[4].class}}>{{week[4].day}}</div><div class="schedule"><ul><li (click)="onSelect(week[4].schedule)">{{week[4].schedule.title}}</li></ul></div></td>
-                    <td class={{week[5].columnClass}}><div class={{week[5].class}}>{{week[5].day}}</div><div class="schedule"><ul><li (click)="onSelect(week[5].schedule)">{{week[5].schedule.title}}</li></ul></div></td>
-                    <td class={{week[6].columnClass}}><div class={{week[6].class}}>{{week[6].day}}</div><div class="schedule"><ul><li (click)="onSelect(week[6].schedule)">{{week[6].schedule.title}}</li></ul></div></td>
+                    <td class={{week[0].columnClass}} (click)="onSelect(week[0].schedule)"><div class={{week[0].class}}>{{week[0].day}}</div><div class="schedule"><ul><li>{{week[0].schedule.title}}</li></ul></div></td>
+                    <td class={{week[1].columnClass}} (click)="onSelect(week[1].schedule)"><div class={{week[1].class}}>{{week[1].day}}</div><div class="schedule"><ul><li>{{week[1].schedule.title}}</li></ul></div></td>
+                    <td class={{week[2].columnClass}} (click)="onSelect(week[2].schedule)"><div class={{week[2].class}}>{{week[2].day}}</div><div class="schedule"><ul><li>{{week[2].schedule.title}}</li></ul></div></td>
+                    <td class={{week[3].columnClass}} (click)="onSelect(week[3].schedule)"><div class={{week[3].class}}>{{week[3].day}}</div><div class="schedule"><ul><li>{{week[3].schedule.title}}</li></ul></div></td>
+                    <td class={{week[4].columnClass}} (click)="onSelect(week[4].schedule)"><div class={{week[4].class}}>{{week[4].day}}</div><div class="schedule"><ul><li>{{week[4].schedule.title}}</li></ul></div></td>
+                    <td class={{week[5].columnClass}} (click)="onSelect(week[5].schedule)"><div class={{week[5].class}}>{{week[5].day}}</div><div class="schedule"><ul><li>{{week[5].schedule.title}}</li></ul></div></td>
+                    <td class={{week[6].columnClass}} (click)="onSelect(week[6].schedule)"><div class={{week[6].class}}>{{week[6].day}}</div><div class="schedule"><ul><li>{{week[6].schedule.title}}</li></ul></div></td>
                 </tr>
             </tbody>
         </table>
