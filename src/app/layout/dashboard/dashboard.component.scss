@@ -20,8 +20,8 @@ tbody {
 }
 
 .day-regular {
-    font-size: 6vh;
-    float: left;
+    text-align: center;
+    font-size: 120px;
 }
 
 .day-regular-not-thismonth {
@@ -40,8 +40,6 @@ tbody {
 }
 
 .schedule {
-    width: 60%;
-    float: right;
 }
 
 .schedule > ul > li {
